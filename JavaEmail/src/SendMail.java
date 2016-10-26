@@ -25,6 +25,11 @@ public class SendMail {
     private String subject;
     //邮件正文
     private String content;
+
+    private Boolean isSSL;
+    private String smtpPort;
+    private String sslPort;
+
     //记录所有附件文件的集合
     List<String> attachments
             = new ArrayList<String>();
@@ -35,7 +40,7 @@ public class SendMail {
 
     public SendMail(String to, String from, String smtpServer
             , String username, String password
-            , String subject, String content) {
+            , String subject, String content, String smtpPort, Boolean isSSL, String sslPort) {
         this.to = to;
         this.from = from;
         this.smtpServer = smtpServer;
@@ -43,6 +48,9 @@ public class SendMail {
         this.password = password;
         this.subject = subject;
         this.content = content;
+        this.isSSL = isSSL;
+        this.smtpPort = smtpPort;
+        this.sslPort = sslPort;
     }
 
     //to属性的setter方法
@@ -80,6 +88,30 @@ public class SendMail {
         this.content = content;
     }
 
+    public Boolean getSSL() {
+        return isSSL;
+    }
+
+    public void setSSL(Boolean SSL) {
+        isSSL = SSL;
+    }
+
+    public String getSmtpPort() {
+        return smtpPort;
+    }
+
+    public void setSmtpPort(String smtpPort) {
+        this.smtpPort = smtpPort;
+    }
+
+    public String getSslPort() {
+        return sslPort;
+    }
+
+    public void setSslPort(String sslPort) {
+        this.sslPort = sslPort;
+    }
+
     //把邮件主题转换为中文
     public String transferChinese(String strText) {
         try {
@@ -103,6 +135,14 @@ public class SendMail {
         Properties props = new Properties();
         props.put("mail.smtp.host", smtpServer);
         props.put("mail.smtp.auth", "true");
+
+        props.put("mail.smtp.port", smtpPort); //smtp port
+
+        if(isSSL){
+            props.put("mail.smtp.socketFactory.port", sslPort);  // ssl port
+            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");  //SSL Factory Class
+        }
+
         //创建Session对象
         Session session = Session.getDefaultInstance(props
                 //以匿名内部类的形式创建登录服务器的认证对象

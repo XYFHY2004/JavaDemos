@@ -24,21 +24,24 @@ public class JavaEmail {
 //        //此处设置登录的用户名
 //        sendMail.setUsername("rjt@idrilling.cn");
 //        //此处设置登录的密码
-//        sendMail.setPassword("idrilling2015!");
+//        sendMail.setPassword(" ");
 //        //设置收件人的地址
 //        sendMail.setTo("lichen@idrilling.cn");
 //        //设置发送人地址
 //        sendMail.setFrom("rjt@idrilling.cn");
 
-        sendMail.setSmtpServer("smtp.126.com");
+        sendMail.setSmtpServer("smtp.gmail.com");
         //此处设置登录的用户名
-        sendMail.setUsername("ljms8181@126.com");
+        sendMail.setUsername("xyfhy2004@gmail.com");
         //此处设置登录的密码
-        sendMail.setPassword("ms605lj");
+        sendMail.setPassword(" ");
         //设置收件人的地址
         sendMail.setTo("ljms8181@126.com");
         //设置发送人地址
-        sendMail.setFrom("ljms8181@126.com");
+        sendMail.setFrom("xyfhy2004@gmail.com");
+        sendMail.setSSL(true);
+        sendMail.setSslPort("465");
+        sendMail.setSmtpPort("465");
 
 
 
