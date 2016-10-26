@@ -2,8 +2,6 @@
  * Created by xyfhy on 15/11/5.
  */
 
-
-
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -22,15 +20,30 @@ public class JavaEmail {
 
 
         SendMail sendMail = new SendMail();
-        sendMail.setSmtpServer("smtp.idrilling.cn");
+//        sendMail.setSmtpServer("smtp.idrilling.cn");
+//        //此处设置登录的用户名
+//        sendMail.setUsername("rjt@idrilling.cn");
+//        //此处设置登录的密码
+//        sendMail.setPassword("idrilling2015!");
+//        //设置收件人的地址
+//        sendMail.setTo("lichen@idrilling.cn");
+//        //设置发送人地址
+//        sendMail.setFrom("rjt@idrilling.cn");
+
+        sendMail.setSmtpServer("smtp.126.com");
         //此处设置登录的用户名
-        sendMail.setUsername("rjt@idrilling.cn");
+        sendMail.setUsername("ljms8181@126.com");
         //此处设置登录的密码
-        sendMail.setPassword("idrilling2015!");
+        sendMail.setPassword("ms605lj");
         //设置收件人的地址
-        sendMail.setTo("lichen@idrilling.cn");
+        sendMail.setTo("ljms8181@126.com");
         //设置发送人地址
-        sendMail.setFrom("rjt@idrilling.cn");
+        sendMail.setFrom("ljms8181@126.com");
+
+
+
+
+
         //设置标题
         sendMail.setSubject("测试邮件标题！");
         //设置内容
